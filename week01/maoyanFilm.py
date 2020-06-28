@@ -18,7 +18,7 @@ response = requests.get(targetUrl, headers=header)
 # 处理html
 bs_info = bs(response.text, 'html.parser')
 
-movie_list = []
+movie_list = [('电影名', '类型', '上映日期')]
 for tags in bs_info.find_all('div', attrs={'class', 'movie-hover-info'})[0:10]:
     # 电影名称
     film_name = tags.find('span', {'class', 'name'}).get_text(strip = True)
@@ -35,6 +35,6 @@ import pandas as pd
 
 movie = pd.DataFrame(data = movie_list)
 
-movie.to_csv('./movie.csv', encoding='utf8', index=False, header=False)
+movie.to_csv('./movie.csv', encoding='utf_8_sig', index=False, header=False)
 
 
