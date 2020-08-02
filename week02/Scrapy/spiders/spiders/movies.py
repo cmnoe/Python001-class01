@@ -11,7 +11,9 @@ class MoviesSpider(scrapy.Spider):
     
     # 解析函数
     def parse(self, response):
+        print(response)
         films = Selector(response=response).xpath("//div[@class='movie-hover-info']")
+        print(films)
         for film in films[0:10]:
             item = MaoyanfilmItem()
             item['film_title'] = film.xpath("./div[1]/@title").extract_first().strip()

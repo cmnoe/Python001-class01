@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test</title>
+</head>
+
+</html>
+
+<body>
+    <div>
+        {% for short in tableData %}
+            <span>{{short.user}}</span>
+            <span>{{short.star}}</span>
+            <span>{{short.content}}</span>
+        {% endfor %}
+    </div>
+</body>
