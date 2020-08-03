@@ -2,17 +2,27 @@
 <html>
 
 <head>
-    <title>test</title>
+    {% block head %}
+        <meta charset="UTF-8" />
+        <title>豆瓣短评</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.0.2/antd.css" />
+        {% load static %}
+    {% endblock %}
 </head>
+
+<body>
+
+    <div id="root"></div>
+
+    {% block js %}
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/3.0.2/antd.js"></script>
+        <script type="text/babel" src="{% static 'js/index.js' %}"></script>
+    {% endblock %}
+</body>
 
 </html>
 
-<body>
-    <div>
-        {% for short in tableData %}
-            <span>{{short.user}}</span>
-            <span>{{short.star}}</span>
-            <span>{{short.content}}</span>
-        {% endfor %}
-    </div>
-</body>
