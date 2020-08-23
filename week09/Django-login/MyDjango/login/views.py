@@ -12,7 +12,7 @@ def login2(request):
             user = authenticate(username=cd['username'], password=cd['password'])
             if user: 
                 login(request, user)
-                return HttpResponse('登录成功')
+                return render(request, 'index.html', {'username': cd['username']})
             else: 
                 return render(request, 'return.html')
     if request.method == 'GET':

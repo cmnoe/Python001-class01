@@ -11,12 +11,12 @@
         let dom = document.getElementById('text')
         let time = 5
         let interval = setInterval (_ => {
-            dom.innerHTML = `登录失败，${time}秒后返回登录页面...`
-            --time
             if (!time) {
                 clearInterval(interval)
                 window.location.href = 'http://127.0.0.1:8000/login'
             }
+            dom.innerHTML = `登录失败，${time}秒后返回登录页面...`
+            --time
         }, 1000)
     </script>
 </body>
